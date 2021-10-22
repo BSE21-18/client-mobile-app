@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.DATAVOC">
         <activity
+            android:name=".Welcome"
+            android:exported="true" />
+        <activity
             android:name=".Activate"
             android:exported="true" />
         <activity
