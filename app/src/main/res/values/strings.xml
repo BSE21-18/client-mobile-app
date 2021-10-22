@@ -13,5 +13,10 @@
     <string name="connecting">Connecting...</string>
     <string name="cancel">cancel</string>
     <string name="preparing">Preparing to receive updates from the sensor device ID 6546</string>
-    <string name="welcome_back">Welcome back, user</string>
+    <string name="welcome_back">Welcome back, </string>
+    <string name="what_to_do">What woould you want to do this time?</string>
+    <string name="connect_device">Connect to a sensor device</string>
+    <string name="register_device">Register another device</string>
+    <string name="history">Go to history</string>
+    <string name="exit">Exit</string>
 </resources>
