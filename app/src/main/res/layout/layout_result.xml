@@ -22,7 +22,7 @@
            android:layout_width="wrap_content"
            android:fontFamily="@font/roboto_bold"
            android:textColor="@color/black"
-           android:textSize="18sp"
+           android:textSize="16sp"
            android:layout_height="wrap_content"
            android:text="@string/date"/>
        <TextView
@@ -31,7 +31,7 @@
            android:layout_height="wrap_content"
            android:fontFamily="@font/roboto"
            android:textColor="@color/black"
-           android:textSize="18sp"
+           android:textSize="16sp"
            android:text="@string/time"/>
        <TextView
            android:id="@+id/sensor"
@@ -39,7 +39,7 @@
            android:layout_height="wrap_content"
            android:textColor="@color/black"
            android:fontFamily="@font/roboto"
-           android:textSize="18sp"
+           android:textSize="16sp"
            android:text="@string/sensor_device_used"/>
        <TextView
            android:id="@+id/detection"
@@ -47,7 +47,7 @@
            android:layout_height="wrap_content"
            android:fontFamily="@font/roboto"
            android:textColor="@color/black"
-           android:textSize="18sp"
+           android:textSize="16sp"
            android:text="@string/detection_of"/>
 
        <LinearLayout
@@ -59,7 +59,7 @@
                android:fontFamily="@font/roboto"
                android:layout_height="wrap_content"
                android:textColor="@color/black"
-               android:textSize="18sp"
+               android:textSize="16sp"
                android:text="@string/plant_status"/>
            <TextView
                android:id="@+id/status"
@@ -82,9 +82,9 @@
            android:layout_width="wrap_content"
            android:layout_height="wrap_content"
            android:textColor="@color/black"
-           android:textSize="18sp"
+           android:textSize="16sp"
            android:fontFamily="@font/roboto_bold"
-           android:layout_marginTop="20dp"
+           android:layout_marginTop="15dp"
            android:text="@string/recommendation"/>
        <TextView
            android:id="@+id/recommendation"
@@ -92,7 +92,7 @@
            android:fontFamily="@font/roboto"
            android:layout_height="wrap_content"
            android:textColor="@color/black"
-           android:textSize="18sp"
+           android:textSize="16sp"
            android:text="Please try again later"/>
    </LinearLayout>
 

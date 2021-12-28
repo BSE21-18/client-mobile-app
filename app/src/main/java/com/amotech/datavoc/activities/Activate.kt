@@ -57,7 +57,9 @@ class Activate : AppCompatActivity() {
         }
 
         notNow.setOnClickListener {
-            onBackPressed()
+            val intent = Intent(this, Welcome::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
         }
     }
 }

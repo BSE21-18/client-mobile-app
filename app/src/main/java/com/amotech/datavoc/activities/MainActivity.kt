@@ -5,6 +5,7 @@ import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amotech.datavoc.R
+import com.amotech.datavoc.adapter.ResultAdapter
 import com.amotech.datavoc.modals.CoinBaseModel
 import com.amotech.datavoc.modals.Result
 import com.google.gson.Gson

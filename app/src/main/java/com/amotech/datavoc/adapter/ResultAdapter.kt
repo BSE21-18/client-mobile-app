@@ -1,4 +1,4 @@
-package com.amotech.datavoc.activities
+package com.amotech.datavoc.adapter
 
 import android.annotation.SuppressLint
 import android.content.Context

@@ -29,7 +29,7 @@ class Splash : AppCompatActivity() {
         Handler(Looper.getMainLooper()).postDelayed({
             var intent = Intent(this, Register::class.java)
             if (pref.getUserData().first_name.isNotEmpty())
-                intent = Intent(this, Activate::class.java)
+                intent = Intent(this, Welcome::class.java)
             startActivity(intent)
             finish()
         }, 3000)
