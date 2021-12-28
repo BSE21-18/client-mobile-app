@@ -1,9 +1,8 @@
 package com.amotech.datavoc.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import com.amotech.datavoc.R
 import com.amotech.datavoc.services.AppPreferences
 import kotlinx.android.synthetic.main.activity_welcome.*
@@ -17,6 +16,7 @@ class Welcome : AppCompatActivity() {
 
         exit.setOnClickListener {
             onBackPressed()
+            finish()
         }
 
         register_device.setOnClickListener {
@@ -28,11 +28,11 @@ class Welcome : AppCompatActivity() {
         connect_to_sensor.setOnClickListener {
             val devices = pref.getDevices()
             if(devices.size == 1){
-                val intent = Intent(this, Devices::class.java)
+                val intent = Intent(this, Activate::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
             }else{
-                val intent = Intent(this, Welcome::class.java)
+                val intent = Intent(this, Devices::class.java)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
             }

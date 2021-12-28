@@ -36,6 +36,22 @@ class AppPreferences(context: Context) {
         editor.apply()
     }
 
+    fun addSensorDevice(device: String):Boolean {
+        val data = getDevices()
+        val searchItem = arrayListOf<String>()
+        searchItem.addAll(data)
+        if (!data.contains(device)) {
+            searchItem.add(device)
+            val editor: SharedPreferences.Editor = prefs!!.edit()
+            val myJson = Gson().toJson(searchItem)
+            editor.putString(KEY_DEVICES, myJson)
+            editor.apply()
+            return true
+        }
+        return false
+
+    }
+
     fun getDevices(): Array<String> {
         var data = arrayOf<String>()
         if (prefs!!.getString(KEY_DEVICES, null) !== null)
