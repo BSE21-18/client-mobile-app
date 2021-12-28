@@ -8,7 +8,7 @@
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
 
-    <color name="main">#097BC1</color>
+    <color name="main">#0093E9</color>
     <color name="lightgray">#CACACA</color>
-    <color name="success">#4BB543</color>
+    <color name="success">#4D8710</color>
 </resources>
