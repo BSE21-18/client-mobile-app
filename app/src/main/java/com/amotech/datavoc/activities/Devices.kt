@@ -23,7 +23,9 @@ class Devices : AppCompatActivity() {
 
         val adapter = DevicesAdapter(pref.getDevices())
         recyclerView.adapter = adapter
-
+        back.setOnClickListener {
+            onBackPressed()
+        }
 
     }
 }

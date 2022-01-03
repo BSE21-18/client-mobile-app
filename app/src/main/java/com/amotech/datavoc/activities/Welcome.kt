@@ -29,6 +29,7 @@ class Welcome : AppCompatActivity() {
             val devices = pref.getDevices()
             if(devices.size == 1){
                 val intent = Intent(this, Activate::class.java)
+                intent.putExtra("device", devices[0])
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
             }else{

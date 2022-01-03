@@ -2,12 +2,12 @@ package com.amotech.datavoc.activities
 
 import android.annotation.SuppressLint
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
-import android.util.Log
-import android.view.View.*
+import android.view.View.GONE
+import android.view.View.VISIBLE
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.view.isVisible
 import com.amotech.datavoc.R
 import com.amotech.datavoc.services.AppPreferences
@@ -27,14 +27,17 @@ class Activate : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_activate)
+
+        val deviceStr = intent.getStringExtra("device")
+
         connecting.visibility = GONE
         connect.visibility = VISIBLE
         pref = AppPreferences(this)
-        preparing.text = getString(R.string.preparing) + " " + pref.getUserData().sensor_id
+        preparing.text = getString(R.string.preparing) + " " + deviceStr!!.uppercase(Locale.getDefault())
         welcome.text =
             getString(R.string.hello) + " " + pref.getUserData().first_name + " " + pref.getUserData().last_name
         device.text =
-            getString(R.string.activated_successfully) + " " + pref.getUserData().sensor_id.uppercase(
+            getString(R.string.activated_successfully) + " " + deviceStr.uppercase(
                 Locale.getDefault()
             )
 
@@ -57,9 +60,7 @@ class Activate : AppCompatActivity() {
         }
 
         notNow.setOnClickListener {
-            val intent = Intent(this, Welcome::class.java)
-            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-            startActivity(intent)
+            onBackPressed()
         }
     }
 }

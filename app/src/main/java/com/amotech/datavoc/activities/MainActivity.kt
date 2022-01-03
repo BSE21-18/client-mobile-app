@@ -47,6 +47,11 @@ class MainActivity : AppCompatActivity() {
         val adapter = ResultAdapter(results)
         recyclerView.adapter = adapter
 
+
+        back.setOnClickListener {
+            onBackPressed()
+        }
+
     }
 
     override fun onResume() {
