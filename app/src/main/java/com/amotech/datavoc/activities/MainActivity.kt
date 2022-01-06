@@ -1,25 +1,18 @@
 package com.amotech.datavoc.activities
 
-import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amotech.datavoc.R
 import com.amotech.datavoc.adapter.ResultAdapter
-import com.amotech.datavoc.modals.CoinBaseModel
 import com.amotech.datavoc.modals.DatavocResult
 import com.amotech.datavoc.modals.Result
-import com.google.android.gms.vision.Frame
-import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.client.HttpClient
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import org.java_websocket.client.WebSocketClient
 import org.java_websocket.handshake.ServerHandshake
 import java.net.URI
-import java.util.*
-import javax.net.ssl.SSLSocketFactory
-import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     private lateinit var webSocketClient: WebSocketClient
@@ -129,7 +122,6 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun subscribe() {
-
         webSocketClient.send(
             "{\"device\": \"All\", \"phone\": \"+256706123303\"}"
         )
