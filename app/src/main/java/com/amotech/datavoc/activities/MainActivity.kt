@@ -1,5 +1,6 @@
 package com.amotech.datavoc.activities
 
+import android.net.Uri
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
@@ -7,13 +8,18 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.amotech.datavoc.R
 import com.amotech.datavoc.adapter.ResultAdapter
 import com.amotech.datavoc.modals.CoinBaseModel
+import com.amotech.datavoc.modals.DatavocResult
 import com.amotech.datavoc.modals.Result
+import com.google.android.gms.vision.Frame
+import com.google.firebase.crashlytics.buildtools.reloc.org.apache.http.client.HttpClient
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import org.java_websocket.client.WebSocketClient
 import org.java_websocket.handshake.ServerHandshake
 import java.net.URI
+import java.util.*
 import javax.net.ssl.SSLSocketFactory
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     private lateinit var webSocketClient: WebSocketClient
@@ -23,6 +29,16 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         recyclerView.layoutManager = (LinearLayoutManager(this))
+        loadData()
+
+
+        back.setOnClickListener {
+            onBackPressed()
+        }
+
+    }
+
+    private fun loadData() {
         results.add(
             Result(
                 "20/12/2021",
@@ -46,12 +62,6 @@ class MainActivity : AppCompatActivity() {
 
         val adapter = ResultAdapter(results)
         recyclerView.adapter = adapter
-
-
-        back.setOnClickListener {
-            onBackPressed()
-        }
-
     }
 
     override fun onResume() {
@@ -78,12 +88,13 @@ class MainActivity : AppCompatActivity() {
             }
 
             override fun onMessage(message: String?) {
-                Log.d(TAG, "onMessage: $message")
+//                Log.d(TAG, "onMessage: $message")
                 setUpBtcPriceText(message)
             }
 
             override fun onClose(code: Int, reason: String?, remote: Boolean) {
                 Log.d(TAG, "onClose")
+                Log.d(TAG, reason.toString())
                 unsubscribe()
             }
 
@@ -92,11 +103,10 @@ class MainActivity : AppCompatActivity() {
             }
 
         }
-        val socketFactory: SSLSocketFactory = SSLSocketFactory.getDefault() as SSLSocketFactory
-        webSocketClient.setSocketFactory(socketFactory)
+        /*val socketFactory: SSLSocketFactory = SSLSocketFactory.getDefault() as SSLSocketFactory
+        webSocketClient.setSocketFactory(socketFactory)*/
         webSocketClient.connect()
     }
-
 
     private fun unsubscribe() {
         webSocketClient.send(
@@ -109,26 +119,24 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpBtcPriceText(message: String?) {
         message?.let {
+            Log.d(TAG, message)
             val data = Gson().fromJson<Any>(
                 message,
-                CoinBaseModel::class.java
-            ) as CoinBaseModel
-            if (data.low_24h.isNotEmpty())
-                Log.d("amokoset", data.toString())
+                DatavocResult::class.java
+            ) as DatavocResult
+            Log.d(TAG, data.toString())
         }
     }
 
     private fun subscribe() {
+
         webSocketClient.send(
-            "{\n" +
-                    "    \"type\": \"subscribe\",\n" +
-                    "    \"channels\": [{ \"name\": \"ticker\", \"product_ids\": [\"BTC-EUR\"] }]\n" +
-                    "}"
+            "{\"device\": \"All\", \"phone\": \"+256706123303\"}"
         )
     }
 
     companion object {
-        const val WEB_SOCKET_URL = "wss://ws-feed.pro.coinbase.com"
-        const val TAG = "Coinbase"
+        const val WEB_SOCKET_URL = "ws://137.184.24.216:7000/getupdates"
+        const val TAG = "DATAVOC-Mobile"
     }
 }
