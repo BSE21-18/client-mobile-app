@@ -28,7 +28,7 @@
     <string name="detection_of">Detection of :</string>
     <string name="plant_status">Plant Status :</string>
     <string name="recommendation">Recommendation :</string>
-    <string name="sensor_device_used">Sensor device used :</string>
+    <string name="sensor_device_used">Sniffer :</string>
     <string name="add_device">Add Device</string>
     <string name="please_provide_the_device_sensor_id">Please provide the device Sensor ID</string>
 </resources>

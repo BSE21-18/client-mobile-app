@@ -48,6 +48,7 @@ class Activate : AppCompatActivity() {
             Handler(Looper.getMainLooper()).postDelayed({
                 if (connecting.isVisible) {
                     val intent = Intent(this, MainActivity::class.java)
+                    intent.putExtra("device", deviceStr)
                     intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                     startActivity(intent)
                 }

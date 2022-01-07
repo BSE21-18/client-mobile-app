@@ -2,29 +2,35 @@ package com.amotech.datavoc.activities
 
 import android.os.Bundle
 import android.util.Log
+import android.view.View.*
 import androidx.appcompat.app.AppCompatActivity
 import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
 import com.amotech.datavoc.R
 import com.amotech.datavoc.adapter.ResultAdapter
 import com.amotech.datavoc.modals.DatavocResult
-import com.amotech.datavoc.modals.Result
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import org.java_websocket.client.WebSocketClient
 import org.java_websocket.handshake.ServerHandshake
 import java.net.URI
+import java.util.*
+import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
+    private var deviceStr = ""
     private lateinit var webSocketClient: WebSocketClient
-    private var results: MutableList<Result> = ArrayList()
-
+    private var results: MutableList<DatavocResult> = ArrayList()
+    private lateinit var recyclerViews: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
-        recyclerView.layoutManager = (LinearLayoutManager(this))
-        loadData()
-
-
+        deviceStr = intent.getStringExtra("device").toString().uppercase(Locale.getDefault())
+Log.d(TAG, deviceStr)
+        recyclerViews = findViewById(R.id.recyclerView)
+        recyclerViews.visibility = GONE
+        waiting.visibility = VISIBLE
+        recyclerViews.layoutManager = (LinearLayoutManager(this))
         back.setOnClickListener {
             onBackPressed()
         }
@@ -32,29 +38,13 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun loadData() {
-        results.add(
-            Result(
-                "20/12/2021",
-                "18:06",
-                "DV20794",
-                "Late Blight",
-                1,
-                "Do not disturb me please"
-            )
-        )
-        results.add(
-            Result(
-                "20/12/2021",
-                "18:06",
-                "DV20794",
-                "Late Blight",
-                2,
-                "Do not disturb me please"
-            )
-        )
-
         val adapter = ResultAdapter(results)
-        recyclerView.adapter = adapter
+        if (results.isNotEmpty()) {
+            recyclerViews.visibility = VISIBLE
+            waiting.visibility = GONE
+        }
+        Log.d(TAG, results.toString())
+        recyclerViews.adapter = adapter
     }
 
     override fun onResume() {
@@ -71,7 +61,6 @@ class MainActivity : AppCompatActivity() {
         val coinbaseUri = URI(WEB_SOCKET_URL)
         createWebSocketClient(coinbaseUri)
     }
-
 
     private fun createWebSocketClient(coinbaseUri: URI?) {
         webSocketClient = object : WebSocketClient(coinbaseUri) {
@@ -112,13 +101,18 @@ class MainActivity : AppCompatActivity() {
 
     private fun setUpBtcPriceText(message: String?) {
         message?.let {
-            Log.d(TAG, message)
             val data = Gson().fromJson<Any>(
                 message,
                 DatavocResult::class.java
             ) as DatavocResult
+            results.add(data)
+            runOnUiThread {
+                //run your code that needs to update the UI here
+                loadData()
+            }
             Log.d(TAG, data.toString())
         }
+
     }
 
     private fun subscribe() {

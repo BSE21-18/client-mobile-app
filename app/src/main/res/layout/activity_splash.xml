@@ -5,6 +5,7 @@
     android:layout_width="match_parent"
     android:layout_gravity="center"
     android:gravity="center"
+    android:background="@color/white"
     android:layout_height="match_parent"
     tools:context=".activities.Splash">
 
@@ -18,15 +19,16 @@
             android:layout_height="170dp"
             android:layout_marginStart="50dp"
             android:src="@drawable/logo" />
+
         <TextView
-            android:layout_below="@+id/logo"
             android:layout_width="wrap_content"
-            android:layout_marginTop="10dp"
-            android:layout_centerHorizontal="true"
             android:layout_height="wrap_content"
-            android:textColor="@color/black"
-            android:textSize="25sp"
+            android:layout_below="@+id/logo"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
             android:fontFamily="@font/roboto_bold"
-            android:text="@string/app_name"/>
+            android:text="@string/app_name"
+            android:textColor="@color/black"
+            android:textSize="25sp" />
     </RelativeLayout>
 </LinearLayout>
