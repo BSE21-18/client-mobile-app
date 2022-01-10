@@ -8,7 +8,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.amotech.datavoc.R
 import com.amotech.datavoc.adapter.ResultAdapter
-import com.amotech.datavoc.modals.DatavocResult
+import com.amotech.datavoc.modals.DATAVOC
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import org.java_websocket.client.WebSocketClient
@@ -20,13 +20,12 @@ import kotlin.collections.ArrayList
 class MainActivity : AppCompatActivity() {
     private var deviceStr = ""
     private lateinit var webSocketClient: WebSocketClient
-    private var results: MutableList<DatavocResult> = ArrayList()
+    private var results: MutableList<DATAVOC> = ArrayList()
     private lateinit var recyclerViews: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
         deviceStr = intent.getStringExtra("device").toString().uppercase(Locale.getDefault())
-Log.d(TAG, deviceStr)
         recyclerViews = findViewById(R.id.recyclerView)
         recyclerViews.visibility = GONE
         waiting.visibility = VISIBLE
@@ -76,6 +75,7 @@ Log.d(TAG, deviceStr)
 
             override fun onClose(code: Int, reason: String?, remote: Boolean) {
                 Log.d(TAG, "onClose")
+                onBackPressed()
                 Log.d(TAG, reason.toString())
                 unsubscribe()
             }
@@ -103,8 +103,8 @@ Log.d(TAG, deviceStr)
         message?.let {
             val data = Gson().fromJson<Any>(
                 message,
-                DatavocResult::class.java
-            ) as DatavocResult
+                DATAVOC::class.java
+            ) as DATAVOC
             results.add(data)
             runOnUiThread {
                 //run your code that needs to update the UI here

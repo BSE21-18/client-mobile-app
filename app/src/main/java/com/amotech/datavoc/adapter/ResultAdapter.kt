@@ -11,10 +11,9 @@ import androidx.annotation.RequiresApi
 import androidx.recyclerview.widget.RecyclerView
 import com.amotech.datavoc.R
 import com.amotech.datavoc.R.string.*
-import com.amotech.datavoc.modals.DatavocResult
-import com.amotech.datavoc.modals.Result
+import com.amotech.datavoc.modals.DATAVOC
 
-class ResultAdapter(private var result: MutableList<DatavocResult>) :
+class ResultAdapter(private var result: MutableList<DATAVOC>) :
     RecyclerView.Adapter<ResultAdapter.ViewHolder>() {
     lateinit var mContext: Context
 
@@ -49,10 +48,10 @@ class ResultAdapter(private var result: MutableList<DatavocResult>) :
         var status = "Healthy"
         var color = mContext.getColor(R.color.white)
         var design = mContext.getDrawable(R.drawable.healthy)
-        holder.date.text = mContext.getString(date) + " " + data.Date
-        holder.time.text = mContext.getString(time) + " " + data.Time
-        holder.sensor.text = mContext.getString(sensor_device_used) + " " + data.Sniffer
-        holder.detection.text = mContext.getString(detection_of) + " " + data.Disease
+        holder.date.text = mContext.getString(date) + " " + data.date
+        holder.time.text = mContext.getString(time) + " " + data.time
+        holder.sensor.text = mContext.getString(sensor_device_used) + " " + data.sniffer
+        holder.detection.text = mContext.getString(detection_of) + " " + data.disease
 
 //        if (data.status == 1) {
 //            status = "healthy"
@@ -64,9 +63,9 @@ class ResultAdapter(private var result: MutableList<DatavocResult>) :
 //            design = mContext.getDrawable(R.drawable.mild_pos)
 //        }
         holder.status.setTextColor(color)
-        holder.status.text = data.PlantStatus
+        holder.status.text = data.plantStatus
         holder.status.background = design
-        holder.recommendation.text = data.Recommendation
+        holder.recommendation.text = data.recommendation
 
     }
 
