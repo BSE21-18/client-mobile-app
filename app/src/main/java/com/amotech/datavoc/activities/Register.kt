@@ -33,6 +33,7 @@ class Register : AppCompatActivity() {
                 intent.putExtra("device", pref.getUserData().sensor_id)
                 intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
                 startActivity(intent)
+                finish()
             }
 
         }

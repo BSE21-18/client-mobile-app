@@ -5,8 +5,6 @@ import android.os.Bundle
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.amotech.datavoc.R
 import com.amotech.datavoc.adapter.DevicesAdapter
-import com.amotech.datavoc.adapter.ResultAdapter
-import com.amotech.datavoc.modals.Result
 import com.amotech.datavoc.services.AppPreferences
 import kotlinx.android.synthetic.main.activity_main.*
 
