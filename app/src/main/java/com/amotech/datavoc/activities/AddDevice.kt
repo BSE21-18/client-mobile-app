@@ -27,7 +27,8 @@ class AddDevice : AppCompatActivity() {
 
         pref = AppPreferences(this)
         topDialog = TopDialog(this)
-        register_device.setOnClickListener {
+        aviReg.visibility = View.GONE
+        add_devices.setOnClickListener {
             if(pref.addSensorDevice(device.text.toString())){
                 register()
             }else{
