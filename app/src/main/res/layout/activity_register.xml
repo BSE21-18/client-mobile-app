@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
@@ -7,165 +7,173 @@
     android:background="@color/white"
     tools:context=".activities.Register">
 
-    <LinearLayout
-        android:id="@+id/regs"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_gravity="center"
-        android:layout_margin="50dp"
-        android:orientation="vertical">
-
-        <ImageView
-            android:layout_width="130dp"
-            android:layout_height="130dp"
-            android:layout_gravity="center_horizontal"
-            android:layout_marginStart="20dp"
-            android:src="@drawable/logo"
-            tools:ignore="ContentDescription" />
-
-        <TextView
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:fontFamily="@font/roboto_bold"
-            android:text="@string/register_and_activate"
-            android:textAlignment="center"
-            android:textColor="@color/black"
-            android:textSize="22sp" />
-
-        <EditText
-            android:id="@+id/firstName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="40dp"
-            android:autofillHints="firstName"
-            android:background="@drawable/round_shape"
-            android:fontFamily="@font/roboto"
-            android:hint="@string/first_name"
-            android:inputType="text"
-            android:paddingStart="20dp"
-            android:paddingTop="15dp"
-            android:paddingEnd="15dp"
-            android:paddingBottom="15dp"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
-
-        <EditText
-            android:id="@+id/lastName"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:autofillHints="lastName"
-            android:background="@drawable/round_shape"
-            android:fontFamily="@font/roboto"
-            android:hint="@string/last_name"
-            android:inputType="text"
-            android:paddingStart="20dp"
-            android:paddingTop="15dp"
-            android:paddingEnd="15dp"
-            android:paddingBottom="15dp"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
+        android:layout_height="wrap_content">
 
         <LinearLayout
+            android:id="@+id/regs"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:gravity="center_vertical"
-            android:orientation="horizontal"
-            android:background="@drawable/blue"
-            android:paddingStart="0dp"
-            android:paddingTop="2dp"
-            android:paddingEnd="10dp"
-            android:paddingBottom="2dp">
-
-            <com.amotech.datavoc.cpp.code.CountryCodePicker
-                android:id="@+id/ccp"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                app:ccp_textSize="16sp"
-                app:ccpDialog_allowSearch="true"
-                app:ccpDialog_cornerRadius="8dp"
-                app:ccpDialog_keyboardAutoPopup="true"
-                app:ccp_autoDetectCountry="true"
-                app:ccp_countryPreference="in,us,nz,gb"
-                app:ccp_hintExampleNumber="true" />
-
-            <EditText
-                android:id="@+id/etPhone"
-                android:layout_width="0dp"
-                android:layout_height="wrap_content"
-                android:layout_weight="1"
-                android:background="@color/white"
-                android:inputType="phone"
-                android:paddingStart="12dp"
-                android:paddingTop="13dp"
-                android:paddingEnd="3dp"
-                android:paddingBottom="14dp"
-                android:singleLine="true"
-                android:textColor="@android:color/black"
-                android:textSize="16sp"
-                tools:ignore="Autofill" />
+            android:layout_height="match_parent"
+            android:layout_gravity="center"
+            android:layout_marginStart="50dp"
+            android:layout_marginTop="50dp"
+            android:layout_marginEnd="50dp"
+            android:layout_marginBottom="50dp"
+            android:orientation="vertical">
 
             <ImageView
-                android:id="@+id/isPhone"
-                android:layout_width="18dp"
-                android:layout_height="18dp"
-                android:contentDescription="@string/images"
-                android:src="@drawable/tick" />
+                android:layout_width="130dp"
+                android:layout_height="130dp"
+                android:layout_gravity="center_horizontal"
+                android:layout_marginStart="20dp"
+                android:src="@drawable/logo"
+                tools:ignore="ContentDescription" />
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:fontFamily="@font/roboto_bold"
+                android:text="@string/register_and_activate"
+                android:textAlignment="center"
+                android:textColor="@color/black"
+                android:textSize="22sp" />
+
+            <EditText
+                android:id="@+id/firstName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="40dp"
+                android:autofillHints="firstName"
+                android:background="@drawable/round_shape"
+                android:fontFamily="@font/roboto"
+                android:hint="@string/first_name"
+                android:inputType="text"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="15dp"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <EditText
+                android:id="@+id/lastName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:autofillHints="lastName"
+                android:background="@drawable/round_shape"
+                android:fontFamily="@font/roboto"
+                android:hint="@string/last_name"
+                android:inputType="text"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="15dp"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/blue"
+                android:gravity="center_vertical"
+                android:orientation="horizontal"
+                android:paddingStart="0dp"
+                android:paddingTop="2dp"
+                android:paddingEnd="10dp"
+                android:paddingBottom="2dp">
+
+                <com.amotech.datavoc.cpp.code.CountryCodePicker
+                    android:id="@+id/ccp"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    app:ccpDialog_allowSearch="true"
+                    app:ccpDialog_cornerRadius="8dp"
+                    app:ccpDialog_keyboardAutoPopup="true"
+                    app:ccp_autoDetectCountry="true"
+                    app:ccp_countryPreference="in,us,nz,gb"
+                    app:ccp_hintExampleNumber="true"
+                    app:ccp_textSize="16sp" />
+
+                <EditText
+                    android:id="@+id/etPhone"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:background="@color/white"
+                    android:inputType="phone"
+                    android:paddingStart="12dp"
+                    android:paddingTop="13dp"
+                    android:paddingEnd="3dp"
+                    android:paddingBottom="14dp"
+                    android:singleLine="true"
+                    android:textColor="@android:color/black"
+                    android:textSize="16sp"
+                    tools:ignore="Autofill" />
+
+                <ImageView
+                    android:id="@+id/isPhone"
+                    android:layout_width="18dp"
+                    android:layout_height="18dp"
+                    android:contentDescription="@string/images"
+                    android:src="@drawable/tick" />
+
+            </LinearLayout>
+
+            <EditText
+                android:id="@+id/sensor"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/round_shape"
+                android:fontFamily="@font/roboto"
+                android:hint="@string/device"
+                android:importantForAutofill="no"
+                android:inputType="textCapCharacters"
+                android:paddingStart="20dp"
+                android:paddingTop="15dp"
+                android:paddingEnd="15dp"
+                android:paddingBottom="15dp"
+                android:textAllCaps="true"
+                android:textColor="@color/black"
+                android:textSize="16sp" />
+
+            <Button
+                android:id="@+id/register"
+                style="?android:attr/borderlessButtonStyle"
+                android:layout_width="match_parent"
+                android:layout_height="50dp"
+                android:layout_marginTop="30dp"
+                android:background="@drawable/round_btn"
+                android:fontFamily="@font/roboto"
+                android:text="@string/register"
+                android:textAllCaps="false"
+                android:textColor="@color/white"
+                android:textSize="16sp" />
 
         </LinearLayout>
 
-        <EditText
-            android:id="@+id/sensor"
-            android:textAllCaps="true"
+        <RelativeLayout
+            android:id="@+id/avi"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/round_shape"
-            android:fontFamily="@font/roboto"
-            android:hint="@string/device"
-            android:paddingStart="20dp"
-            android:paddingTop="15dp"
-            android:paddingEnd="15dp"
-            android:paddingBottom="15dp"
-            android:inputType="textCapCharacters"
-            android:textColor="@color/black"
-            android:textSize="16sp"
-            android:importantForAutofill="no" />
+            android:layout_height="match_parent"
+            android:background="#BF050505"
+            android:clickable="true"
+            android:focusable="true"
+            android:visibility="gone">
 
-        <Button
-            android:id="@+id/register"
-            style="?android:attr/borderlessButtonStyle"
-            android:layout_width="match_parent"
-            android:layout_height="50dp"
-            android:layout_marginTop="30dp"
-            android:background="@drawable/round_btn"
-            android:fontFamily="@font/roboto"
-            android:text="@string/register"
-            android:textAllCaps="false"
-            android:textColor="@color/white"
-            android:textSize="16sp" />
-
-    </LinearLayout>
-
-    <RelativeLayout
-        android:visibility="gone"
-        android:id="@+id/avi"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="#BF050505"
-        android:clickable="true"
-        android:focusable="true">
-
-        <com.wang.avi.AVLoadingIndicatorView
-            style="@style/AVLoadingIndicatorView"
-            android:layout_width="70dp"
-            android:layout_height="70dp"
-            android:layout_centerInParent="true"
-            android:layout_marginTop="10dp"
-            android:visibility="visible"
-            app:indicatorColor="@color/success"
-            app:indicatorName="BallPulseIndicator" />
+            <com.wang.avi.AVLoadingIndicatorView
+                style="@style/AVLoadingIndicatorView"
+                android:layout_width="70dp"
+                android:layout_height="70dp"
+                android:layout_centerInParent="true"
+                android:layout_marginTop="10dp"
+                android:visibility="visible"
+                app:indicatorColor="@color/success"
+                app:indicatorName="BallPulseIndicator" />
+        </RelativeLayout>
     </RelativeLayout>
-</RelativeLayout>
+</ScrollView>

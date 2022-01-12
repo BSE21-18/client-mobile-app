@@ -2,6 +2,7 @@ package com.amotech.datavoc.activities
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import androidx.appcompat.app.AppCompatActivity
 import com.amotech.datavoc.R
@@ -51,7 +52,7 @@ class AddDevice : AppCompatActivity() {
         service[getString(R.string.contact)] = pref.getUserData().phone
         service[getString(R.string.snifferId)] = device.text.toString()
             .uppercase(Locale.getDefault())
-
+Log.d("Amko", service.toString())
         val destinationService = ServiceBuilder.buildService(APIService::class.java)
         val requestCall = destinationService.postUser(service)
 
@@ -61,6 +62,7 @@ class AddDevice : AppCompatActivity() {
                 call: Call<User>,
                 response: Response<User>,
             ) {
+                Log.d("Amko", response.body().toString())
                 exit.visibility = View.VISIBLE
                 aviReg.visibility = View.GONE
                 try {
