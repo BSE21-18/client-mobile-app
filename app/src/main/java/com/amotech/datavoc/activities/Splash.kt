@@ -28,7 +28,7 @@ class Splash : AppCompatActivity() {
         // to send a message with a delayed time.
         Handler(Looper.getMainLooper()).postDelayed({
             var intent = Intent(this, Register::class.java)
-            if (pref.getUserData().first_name.isNotEmpty())
+            if (pref.getUserData().firstname.isNotEmpty())
                 intent = Intent(this, Welcome::class.java)
             startActivity(intent)
             finish()

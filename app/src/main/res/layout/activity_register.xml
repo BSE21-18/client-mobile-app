@@ -1,99 +1,107 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.core.widget.NestedScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/white"
-    android:padding="50dp"
     tools:context=".activities.Register">
 
     <LinearLayout
+        android:id="@+id/regs"
         android:layout_width="match_parent"
-        android:orientation="vertical"
+        android:layout_height="match_parent"
         android:layout_gravity="center"
-        android:layout_height="match_parent">
+        android:layout_margin="50dp"
+        android:orientation="vertical">
+
         <ImageView
             android:layout_width="130dp"
             android:layout_height="130dp"
-            android:layout_marginStart="20dp"
             android:layout_gravity="center_horizontal"
-            android:src="@drawable/logo"/>
+            android:layout_marginStart="20dp"
+            android:src="@drawable/logo" />
+
         <TextView
-            android:layout_marginTop="20dp"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/roboto_bold"
+            android:text="@string/register_and_activate"
             android:textAlignment="center"
             android:textColor="@color/black"
-            android:fontFamily="@font/roboto_bold"
-            android:textSize="22sp"
-            android:text="@string/register_and_activate" />
+            android:textSize="22sp" />
+
         <EditText
             android:id="@+id/firstName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
             android:layout_marginTop="40dp"
-            android:textColor="@color/black"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="15dp"
+            android:autofillHints="firstName"
             android:background="@drawable/round_shape"
             android:fontFamily="@font/roboto"
-            android:textSize="16sp"
             android:hint="@string/first_name"
-            android:autofillHints="firstName" />
+            android:inputType="text"
+            android:paddingStart="20dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="15dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
         <EditText
             android:id="@+id/lastName"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
-            android:textColor="@color/black"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
             android:layout_marginTop="10dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="15dp"
+            android:autofillHints="lastName"
             android:background="@drawable/round_shape"
             android:fontFamily="@font/roboto"
-            android:textSize="16sp"
             android:hint="@string/last_name"
-            android:autofillHints="lastName" />
+            android:inputType="text"
+            android:paddingStart="20dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="15dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
         <EditText
             android:id="@+id/phone"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="phone"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="15dp"
             android:background="@drawable/round_shape"
             android:fontFamily="@font/roboto"
-            android:textSize="16sp"
-            android:hint="@string/phone"/>
+            android:hint="@string/phone"
+            android:inputType="phone"
+            android:paddingStart="20dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="15dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
+
         <EditText
             android:id="@+id/sensor"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="text"
             android:layout_marginTop="10dp"
-            android:textColor="@color/black"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:paddingStart="20dp"
-            android:paddingEnd="15dp"
             android:background="@drawable/round_shape"
             android:fontFamily="@font/roboto"
-            android:textSize="16sp"
-            android:hint="@string/device"/>
+            android:hint="@string/device"
+            android:inputType="text"
+            android:paddingStart="20dp"
+            android:paddingTop="15dp"
+            android:paddingEnd="15dp"
+            android:paddingBottom="15dp"
+            android:textColor="@color/black"
+            android:textSize="16sp" />
 
         <Button
             android:id="@+id/register"
-            android:layout_width="match_parent"
             style="?android:attr/borderlessButtonStyle"
+            android:layout_width="match_parent"
             android:layout_height="50dp"
             android:layout_marginTop="30dp"
             android:background="@drawable/round_btn"
@@ -105,5 +113,22 @@
 
     </LinearLayout>
 
+    <RelativeLayout
+        android:id="@+id/avi"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BF050505"
+        android:clickable="true"
+        android:focusable="true">
 
-</androidx.core.widget.NestedScrollView>
+        <com.wang.avi.AVLoadingIndicatorView
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="100dp"
+            android:layout_height="100dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:visibility="visible"
+            app:indicatorColor="@color/success"
+            app:indicatorName="BallPulseIndicator" />
+    </RelativeLayout>
+</RelativeLayout>
