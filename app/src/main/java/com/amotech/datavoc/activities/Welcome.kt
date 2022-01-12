@@ -5,12 +5,15 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import com.amotech.datavoc.R
 import com.amotech.datavoc.services.AppPreferences
+import com.amotech.datavoc.services.TopDialog
 import kotlinx.android.synthetic.main.activity_welcome.*
 
 class Welcome : AppCompatActivity() {
     lateinit var pref:AppPreferences
+    private lateinit var topDialog: TopDialog
     override fun onCreate(savedInstanceState: Bundle?) {
         pref = AppPreferences(this)
+        topDialog = TopDialog(this)
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_welcome)
 

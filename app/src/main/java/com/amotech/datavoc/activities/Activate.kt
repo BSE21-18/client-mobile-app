@@ -35,7 +35,7 @@ class Activate : AppCompatActivity() {
         pref = AppPreferences(this)
         preparing.text = getString(R.string.preparing) + " " + deviceStr!!.uppercase(Locale.getDefault())
         welcome.text =
-            getString(R.string.hello) + " " + pref.getUserData().first_name + " " + pref.getUserData().last_name
+            getString(R.string.hello) + " " + pref.getUserData().firstname + " " + pref.getUserData().lastname
         device.text =
             getString(R.string.activated_successfully) + " " + deviceStr.uppercase(
                 Locale.getDefault()

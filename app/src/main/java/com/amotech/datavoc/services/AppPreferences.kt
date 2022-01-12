@@ -20,7 +20,7 @@ class AppPreferences(context: Context) {
     fun setUserDetails(user: User) {
         val info = Gson().toJson(user)
         prefs!!.edit().putString(KEY_USER, info).apply()
-        addDevice(user.sensor_id)
+        addDevice(user.snifferId)
     }
 
 

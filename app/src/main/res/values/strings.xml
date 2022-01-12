@@ -1,17 +1,18 @@
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <string name="app_name">DATAVOC</string>
     <string name="register_and_activate">Register and activate your sensor device</string>
     <string name="register">Register</string>
     <string name="first_name">First Name</string>
     <string name="last_name">Last Name</string>
-    <string name="phone">Phone Number</string>
+    <string name="phone">+256705531898</string>
+    <string name="contact">phone</string>
     <string name="device">Your Sensor device ID</string>
     <string name="activated">Activated</string>
     <string name="activated_successfully">You have successfully activated your sensor device ID : </string>
     <string name="connect">Connect to Device</string>
     <string name="not_now">Not now</string>
-    <string name="connecting">Connecting...</string>
-    <string name="cancel">cancel</string>
+    <string name="connecting">Connecting…</string>
+    <string name="cancel" tools:ignore="ButtonCase">cancel</string>
     <string name="preparing">Preparing to receive updates from the sensor device ID </string>
     <string name="welcome_back">Welcome back, </string>
     <string name="what_to_do">What would you want to do this time?</string>
@@ -31,4 +32,13 @@
     <string name="sensor_device_used">Sniffer :</string>
     <string name="add_device">Add Device</string>
     <string name="please_provide_the_device_sensor_id">Please provide the device Sensor ID</string>
+    <string name="firstname">firstname</string>
+    <string name="lastname">lastname</string>
+    <string name="snifferId">snifferId</string>
+    <string name="select_country">Select Country</string>
+    <string name="dismiss_button_content_description">Dismiss</string>
+    <string name="search_hint">Search hear</string>
+    <string name="clear_search_button_content_description">Clear search</string>
+    <string name="no_result_found">No Results found</string>
+    <string name="images">images</string>
 </resources>

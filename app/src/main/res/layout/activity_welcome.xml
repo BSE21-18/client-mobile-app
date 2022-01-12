@@ -47,7 +47,6 @@
                 android:textColor="@color/black"
                 android:textSize="17sp" />
 
-
             <Button
                 android:id="@+id/connect_to_sensor"
                 android:layout_width="match_parent"
@@ -66,6 +65,7 @@
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
                 android:background="@drawable/round_btn"
+                android:clickable="false"
                 android:fontFamily="@font/roboto"
                 android:text="@string/register_device"
                 android:textAllCaps="false"
@@ -73,7 +73,6 @@
                 android:textSize="16sp" />
 
             <Button
-                android:visibility="gone"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
@@ -82,7 +81,8 @@
                 android:text="@string/history"
                 android:textAllCaps="false"
                 android:textColor="@color/white"
-                android:textSize="16sp" />
+                android:textSize="16sp"
+                android:visibility="gone" />
 
         </LinearLayout>
 
@@ -92,8 +92,8 @@
         android:id="@+id/exit"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="10dp"
         android:layout_alignParentBottom="true"
+        android:layout_marginBottom="10dp"
         android:background="@drawable/round_btn_gray"
         android:fontFamily="@font/roboto"
         android:text="@string/exit"

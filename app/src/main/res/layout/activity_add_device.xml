@@ -3,11 +3,14 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:background="@color/white"
-    android:padding="50dp"
+
     tools:context=".activities.AddDevice">
 
     <LinearLayout
+        android:id="@+id/another"
+        android:layout_margin="50dp"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_gravity="center"
@@ -49,6 +52,7 @@
 
             <EditText
                 android:id="@+id/device"
+                android:textAllCaps="true"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="40dp"
@@ -56,7 +60,7 @@
                 android:background="@drawable/round_shape"
                 android:fontFamily="@font/roboto"
                 android:hint="@string/device"
-                android:inputType="text"
+                android:inputType="textCapSentences"
                 android:paddingStart="20dp"
                 android:paddingTop="15dp"
                 android:paddingEnd="15dp"
@@ -65,7 +69,7 @@
                 android:textSize="16sp" />
 
             <Button
-                android:id="@+id/register_device"
+                android:id="@+id/add_devices"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="20dp"
@@ -82,6 +86,7 @@
 
     <Button
         android:id="@+id/exit"
+        android:layout_margin="50dp"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
@@ -91,5 +96,25 @@
         android:text="@string/not_now"
         android:textAllCaps="false"
         android:textSize="16sp" />
+
+
+    <RelativeLayout
+        android:id="@+id/aviReg"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="#BF050505"
+        android:clickable="true"
+        android:focusable="true">
+
+        <com.wang.avi.AVLoadingIndicatorView
+            style="@style/AVLoadingIndicatorView"
+            android:layout_width="70dp"
+            android:layout_height="70dp"
+            android:layout_centerInParent="true"
+            android:layout_marginTop="10dp"
+            android:visibility="visible"
+            app:indicatorColor="@color/success"
+            app:indicatorName="BallPulseIndicator" />
+    </RelativeLayout>
 
 </RelativeLayout>

@@ -7,5 +7,5 @@
     <!-- android:radius The radius of the arc -->
     <corners android:radius="10dip" />
     <!--The width and color of the border-->
-    <stroke android:width="3px" android:color="@color/lightgray" />
+    <stroke android:width="0.5dp" android:color="@color/lightgray" />
 </shape>
