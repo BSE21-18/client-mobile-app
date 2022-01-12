@@ -123,7 +123,7 @@ class MainActivity : AppCompatActivity() {
 
     private fun subscribe() {
         webSocketClient.send(
-            "{\"device\": \"$deviceStr\", \"phone\": \"$phone\"}"
+            "{\"device\": \"All\", \"phone\": \"$phone\"}"
         )
         /*webSocketClient.send(
             "{\"device\": \"All\", \"phone\": \"+256706123303\"}"
