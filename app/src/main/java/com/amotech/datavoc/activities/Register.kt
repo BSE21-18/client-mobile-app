@@ -1,11 +1,9 @@
 package com.amotech.datavoc.activities
 
 import android.content.Intent
-import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
-import android.util.Patterns
 import android.view.View
+import androidx.appcompat.app.AppCompatActivity
 import androidx.core.widget.addTextChangedListener
 import com.amotech.datavoc.R
 import com.amotech.datavoc.modals.User
@@ -25,14 +23,6 @@ class Register : AppCompatActivity() {
         avi.visibility = View.GONE
         topDialog = TopDialog(this)
         pref = AppPreferences(this)
-        register.setOnClickListener {
-            if (isValid()) {
-                register()
-            }
-
-        }
-
-
         ccp.registerCarrierNumberEditText(etPhone)
         isPhone.visibility = View.GONE
         etPhone.addTextChangedListener {
@@ -41,6 +31,13 @@ class Register : AppCompatActivity() {
             else
                 isPhone.visibility = View.GONE
         }
+
+        register.setOnClickListener {
+            if (isValid()) {
+                register()
+            }
+
+        }
     }
 
     private fun register() {
@@ -48,7 +45,8 @@ class Register : AppCompatActivity() {
         val service = HashMap<String, Any>()
         service[getString(R.string.firstname)] = firstName.text.toString()
         service[getString(R.string.lastname)] = lastName.text.toString()
-        service[getString(R.string.contact)] = phone.text.toString()
+        service[getString(R.string.contact)] =
+            ccp.selectedCountryCode + etPhone.text.trim().toString().replace("\\s".toRegex(), "")
         service[getString(R.string.snifferId)] = sensor.text.toString()
 
 
@@ -69,7 +67,8 @@ class Register : AppCompatActivity() {
                             User(
                                 firstName.text.toString(),
                                 lastName.text.toString(),
-                                phone.text.toString(),
+                                ccp.selectedCountryCode + etPhone.text.trim().toString()
+                                    .replace("\\s".toRegex(), ""),
                                 sensor.text.toString()
                             )
                         )
@@ -96,10 +95,6 @@ class Register : AppCompatActivity() {
         })
     }
 
-    fun CharSequence?.isValidPhoneNumber():Boolean{
-        return !isNullOrEmpty() && Patterns.PHONE.matcher(this).matches()
-    }
-
     private fun isValid(): Boolean {
         if (firstName.text.isEmpty()) {
             topDialog.sneakError(getString(R.string.please) + "first name")
@@ -117,12 +112,7 @@ class Register : AppCompatActivity() {
             return false
         }
 
-        if (phone.text.isEmpty()) {
-            topDialog.sneakError(getString(R.string.please) + "contact")
-            return false
-        }
-
-        if(!(phone.text.isValidPhoneNumber())){
+        if (!ccp.isValidFullNumber) {
             topDialog.sneakError(getString(R.string.please_short) + "Contact")
             return false
         }

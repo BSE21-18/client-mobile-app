@@ -20,7 +20,8 @@
             android:layout_height="130dp"
             android:layout_gravity="center_horizontal"
             android:layout_marginStart="20dp"
-            android:src="@drawable/logo" />
+            android:src="@drawable/logo"
+            tools:ignore="ContentDescription" />
 
         <TextView
             android:layout_width="match_parent"
@@ -114,37 +115,24 @@
                 android:src="@drawable/tick" />
 
         </LinearLayout>
-        <EditText
-            android:id="@+id/phone"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="10dp"
-            android:background="@drawable/round_shape"
-            android:fontFamily="@font/roboto"
-            android:hint="@string/phone"
-            android:inputType="phone"
-            android:paddingStart="20dp"
-            android:paddingTop="15dp"
-            android:paddingEnd="15dp"
-            android:paddingBottom="15dp"
-            android:textColor="@color/black"
-            android:textSize="16sp" />
 
         <EditText
             android:id="@+id/sensor"
+            android:textAllCaps="true"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_marginTop="10dp"
             android:background="@drawable/round_shape"
             android:fontFamily="@font/roboto"
             android:hint="@string/device"
-            android:inputType="text"
             android:paddingStart="20dp"
             android:paddingTop="15dp"
             android:paddingEnd="15dp"
             android:paddingBottom="15dp"
+            android:inputType="textCapCharacters"
             android:textColor="@color/black"
-            android:textSize="16sp" />
+            android:textSize="16sp"
+            android:importantForAutofill="no" />
 
         <Button
             android:id="@+id/register"
