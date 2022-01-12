@@ -12,7 +12,7 @@ object ServiceBuilder {
     // Create OkHttp Client
     private val okHttp = OkHttpClient.Builder()
 
-    var gson = GsonBuilder()
+    private var gson = GsonBuilder()
         .setLenient()
         .create()!!
 

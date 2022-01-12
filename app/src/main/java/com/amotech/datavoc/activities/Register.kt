@@ -50,7 +50,6 @@ class Register : AppCompatActivity() {
                 response: Response<User>,
             ) {
                 avi.visibility = View.GONE
-                Log.d("amoko", response.toString())
                 try {
                     if (response.body()!!.firstname.isNotEmpty()) {
                         topDialog.sneakSuccess("Well done")
@@ -78,7 +77,6 @@ class Register : AppCompatActivity() {
                 call: Call<User>,
                 t: Throwable,
             ) {
-//                Log.d("amoko", t.toString())
                 avi.visibility = View.GONE
             }
 

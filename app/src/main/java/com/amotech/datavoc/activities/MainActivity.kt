@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.amotech.datavoc.R
 import com.amotech.datavoc.adapter.ResultAdapter
 import com.amotech.datavoc.modals.DATAVOC
+import com.amotech.datavoc.services.AppPreferences
 import com.google.gson.Gson
 import kotlinx.android.synthetic.main.activity_main.*
 import org.java_websocket.client.WebSocketClient
@@ -19,13 +20,17 @@ import kotlin.collections.ArrayList
 
 class MainActivity : AppCompatActivity() {
     private var deviceStr = ""
+    private var phone = ""
+    private lateinit var pref:AppPreferences
     private lateinit var webSocketClient: WebSocketClient
     private var results: MutableList<DATAVOC> = ArrayList()
     private lateinit var recyclerViews: RecyclerView
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_main)
+        pref = AppPreferences(this)
         deviceStr = intent.getStringExtra("device").toString().uppercase(Locale.getDefault())
+        phone = pref.getUserData().phone
         recyclerViews = findViewById(R.id.recyclerView)
         recyclerViews.visibility = GONE
         waiting.visibility = VISIBLE
@@ -48,6 +53,7 @@ class MainActivity : AppCompatActivity() {
 
     override fun onResume() {
         super.onResume()
+        Log.d("amoko", "{\"device\": \"$deviceStr\", \"phone\": \"$phone\"}")
         initWebSocket()
     }
 
@@ -117,8 +123,11 @@ class MainActivity : AppCompatActivity() {
 
     private fun subscribe() {
         webSocketClient.send(
-            "{\"device\": \"All\", \"phone\": \"+256706123303\"}"
+            "{\"device\": \"$deviceStr\", \"phone\": \"$phone\"}"
         )
+        /*webSocketClient.send(
+            "{\"device\": \"All\", \"phone\": \"+256706123303\"}"
+        )*/
     }
 
     companion object {

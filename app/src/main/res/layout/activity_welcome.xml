@@ -61,11 +61,12 @@
                 android:textSize="16sp" />
 
             <Button
+                android:clickable="false"
                 android:id="@+id/register_device"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="10dp"
-                android:background="@drawable/round_btn"
+                android:background="@drawable/round_btn_gray"
                 android:fontFamily="@font/roboto"
                 android:text="@string/register_device"
                 android:textAllCaps="false"
