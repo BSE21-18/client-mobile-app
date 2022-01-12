@@ -78,6 +78,7 @@ class Register : AppCompatActivity() {
                 t: Throwable,
             ) {
                 avi.visibility = View.GONE
+                topDialog.sneakError(t.message.toString())
             }
 
         })
