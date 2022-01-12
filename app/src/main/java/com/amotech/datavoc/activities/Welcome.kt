@@ -23,10 +23,9 @@ class Welcome : AppCompatActivity() {
         }
 
         register_device.setOnClickListener {
-            topDialog.sneakWarning("More devices coming soon")
-//            val intent = Intent(this, AddDevice::class.java)
-//            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
-//            startActivity(intent)
+            val intent = Intent(this, AddDevice::class.java)
+            intent.flags = Intent.FLAG_ACTIVITY_NEW_TASK
+            startActivity(intent)
         }
 
         connect_to_sensor.setOnClickListener {

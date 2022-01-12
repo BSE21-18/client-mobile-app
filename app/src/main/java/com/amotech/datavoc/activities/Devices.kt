@@ -14,7 +14,6 @@ class Devices : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_devices)
 
-
         pref = AppPreferences(this)
 
         recyclerView.layoutManager = (LinearLayoutManager(this))

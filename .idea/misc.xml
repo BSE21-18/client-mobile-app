@@ -3,12 +3,20 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="../../../../layout/custom_preview.xml" value="0.36944444444444446" />
+        <entry key="app/src/main/res/drawable/blue.xml" value="0.2833333333333333" />
+        <entry key="app/src/main/res/drawable/ccp_ic_arrow_drop_down.xml" value="0.36944444444444446" />
+        <entry key="app/src/main/res/drawable/ccp_ic_arrow_drop_downs.xml" value="0.36944444444444446" />
+        <entry key="app/src/main/res/drawable/fastscroll__default_bubble.xml" value="0.36944444444444446" />
         <entry key="app/src/main/res/drawable/healthy.xml" value="0.2328125" />
+        <entry key="app/src/main/res/drawable/ic_backspace_black_24dp.xml" value="0.36944444444444446" />
+        <entry key="app/src/main/res/drawable/ic_clear_black_24dp.xml" value="0.36944444444444446" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.2351851851851852" />
         <entry key="app/src/main/res/drawable/mild_pos.xml" value="0.2328125" />
         <entry key="app/src/main/res/drawable/round_btn.xml" value="0.4041666666666667" />
         <entry key="app/src/main/res/drawable/round_btn_gray.xml" value="0.4041666666666667" />
         <entry key="app/src/main/res/drawable/round_shape.xml" value="0.4041666666666667" />
+        <entry key="app/src/main/res/drawable/tick.xml" value="0.2833333333333333" />
         <entry key="app/src/main/res/layout/activity_activate.xml" value="0.266304347826087" />
         <entry key="app/src/main/res/layout/activity_add_device.xml" value="0.21666666666666667" />
         <entry key="app/src/main/res/layout/activity_devices.xml" value="0.3432971014492754" />
@@ -16,7 +24,11 @@
         <entry key="app/src/main/res/layout/activity_register.xml" value="0.271286231884058" />
         <entry key="app/src/main/res/layout/activity_splash.xml" value="0.22327898550724637" />
         <entry key="app/src/main/res/layout/activity_welcome.xml" value="0.2563405797101449" />
+        <entry key="app/src/main/res/layout/fastscroll__default_bubble.xml" value="0.3211050724637681" />
+        <entry key="app/src/main/res/layout/layout_code_picker.xml" value="0.3211050724637681" />
         <entry key="app/src/main/res/layout/layout_devices.xml" value="0.3432971014492754" />
+        <entry key="app/src/main/res/layout/layout_full_width_code_picker.xml" value="0.3211050724637681" />
+        <entry key="app/src/main/res/layout/layout_picker_dialog.xml" value="0.3211050724637681" />
         <entry key="app/src/main/res/layout/layout_result.xml" value="0.21666666666666667" />
         <entry key="app/src/main/res/menu/drawer_view.xml" value="0.3880208333333333" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.2351851851851852" />

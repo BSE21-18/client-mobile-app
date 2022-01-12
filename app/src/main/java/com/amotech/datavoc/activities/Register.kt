@@ -4,7 +4,9 @@ import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
 import android.util.Log
+import android.util.Patterns
 import android.view.View
+import androidx.core.widget.addTextChangedListener
 import com.amotech.datavoc.R
 import com.amotech.datavoc.modals.User
 import com.amotech.datavoc.services.APIService
@@ -28,6 +30,16 @@ class Register : AppCompatActivity() {
                 register()
             }
 
+        }
+
+
+        ccp.registerCarrierNumberEditText(etPhone)
+        isPhone.visibility = View.GONE
+        etPhone.addTextChangedListener {
+            if (ccp.isValidFullNumber)
+                isPhone.visibility = View.VISIBLE
+            else
+                isPhone.visibility = View.GONE
         }
     }
 
@@ -84,6 +96,10 @@ class Register : AppCompatActivity() {
         })
     }
 
+    fun CharSequence?.isValidPhoneNumber():Boolean{
+        return !isNullOrEmpty() && Patterns.PHONE.matcher(this).matches()
+    }
+
     private fun isValid(): Boolean {
         if (firstName.text.isEmpty()) {
             topDialog.sneakError(getString(R.string.please) + "first name")
@@ -103,6 +119,11 @@ class Register : AppCompatActivity() {
 
         if (phone.text.isEmpty()) {
             topDialog.sneakError(getString(R.string.please) + "contact")
+            return false
+        }
+
+        if(!(phone.text.isValidPhoneNumber())){
+            topDialog.sneakError(getString(R.string.please_short) + "Contact")
             return false
         }
 
