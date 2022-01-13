@@ -2,10 +2,10 @@
 <shape xmlns:android="http://schemas.android.com/apk/res/android"
     android:shape="rectangle">
     <!-- Fill color -->
-    <solid android:color="#5E96C5" />
+    <solid android:color="#4CAF50" />
     <!-- Set the four corners of the button to be curved -->
     <!-- android:radius The radius of the arc -->
     <corners android:radius="8dip" />
     <!--The width and color of the border-->
-    <stroke android:width="6px" android:color="#5E96C5" />
+    <stroke android:width="6px" android:color="#4CAF50" />
 </shape>

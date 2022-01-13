@@ -45,23 +45,20 @@ class ResultAdapter(private var result: MutableList<DATAVOC>) :
     @SuppressLint("SetTextI18n", "UseCompatLoadingForDrawables")
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val data = result[position]
-        var status = "Healthy"
         var color = mContext.getColor(R.color.white)
-        var design = mContext.getDrawable(R.drawable.healthy)
+        var design = mContext.getDrawable(R.drawable.positive)
         holder.date.text = mContext.getString(date) + " " + data.date
         holder.time.text = mContext.getString(time) + " " + data.time
         holder.sensor.text = mContext.getString(sensor_device_used) + " " + data.sniffer
         holder.detection.text = mContext.getString(detection_of) + " " + data.disease
 
-//        if (data.status == 1) {
-//            status = "healthy"
-//            color = mContext.getColor(R.color.white)
-//            design = mContext.getDrawable(R.drawable.healthy)
-//        } else if (data.status == 2) {
-//            status = "mild +ve"
-//            color = mContext.getColor(R.color.black)
-//            design = mContext.getDrawable(R.drawable.mild_pos)
-//        }
+        if (data.plantStatus == "unknown") {
+            color = mContext.getColor(R.color.black)
+            design = mContext.getDrawable(R.drawable.mild_pos)
+        } else if (data.plantStatus == "healthy") {
+            color = mContext.getColor(R.color.white)
+            design = mContext.getDrawable(R.drawable.healthy)
+        }
         holder.status.setTextColor(color)
         holder.status.text = data.plantStatus
         holder.status.background = design
